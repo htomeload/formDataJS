@@ -7,7 +7,7 @@ This project is about library which contain nesscesary function to reducing code
 No any more requirement! this project writes with mind that it should be work with any Framework that base on JavaScript ES6
 or higher, with that, this library can be anywhere that use JavaScript.
 
-### Usage
+## Usage
 Library writes in Object-Functions format, so just import it into page where it will be used is enough, 
 then use `FormdataService` or whatever name as defined following with function name. For example
 
