@@ -47,7 +47,7 @@ Available function is
     let input = {
         email: "example@email.com",
         name: "John",
-        wallet: "50$"
+        wallet: "5,000"
     };
 
     FormdataService.validation(input.email, ['requires', 'is_valid_email']);
