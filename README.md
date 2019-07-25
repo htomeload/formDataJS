@@ -44,9 +44,23 @@ Available function is
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
     
     ```bash
-    FormdataService.validation("John", ['requires', 'is_string', {match_to: 'John'}]);
+    let input = {
+        email: "example@email.com",
+        name: "John",
+        wallet: "50$"
+    };
+
+    FormdataService.validation(input.email, ['requires', 'is_valid_email']);
     
-    // return: true/false (upon successed or failed in validation)
+    // return: true
+
+    FormdataService.validation(input.name, ['requires', 'is_string', {match_to: "John"}]);
+    
+    // return: true
+
+    FormdataService.validation(input.wallet, ['requires', 'is_numeric']);
+    
+    // return: false
     ```
 
 For deep information in how to use function is writes in library already, for such as IDE like Visual Studio Code should see while using it.
