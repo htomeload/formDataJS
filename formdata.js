@@ -14,9 +14,9 @@ export default FormdataService = {
 	/**
 	 * Function use for convert object to FormData's object.
 	 * 
-     * @param {object[]} obj - must be in format { {key: value}, ... }, otherwise will thrown error.
+	 * @param {object[]} obj - must be in format { {key: value}, ... }, otherwise will thrown error.
 	 * @param {any} obj[].key - can be number, string, boolean, array and object.
-     */
+     	*/
 	build: (obj) => {
 		try {
 			let formData = new FormData();
@@ -48,8 +48,8 @@ export default FormdataService = {
 	/**
 	 * Function use for convert array/object to JSON string.
 	 * 
-     * @param {object} obj - must be valid array or object, otherwise will thrown error.
-     */
+     	 * @param {object} obj - must be valid array or object, otherwise will thrown error.
+     	*/
 	objectToJSON: (obj) => {
 		try {
 			return JSON.stringify(obj);
@@ -61,23 +61,23 @@ export default FormdataService = {
 	/**
 	 * Function use for convert JSON string to object.
 	 * 
-     * @param {string} json - must be valid JSON string, otherwise will thrown error.
-     */
+     	 * @param {string} json - must be valid JSON string, otherwise will thrown error.
+     	*/
 	jsonToObject: (json) => {
 		try {
 			return JSON.parse(json);
 		} catch (error) {
 			throw error;
 		}
-    },
+    	},
     
-    /**
+    	/**
 	 * Function use for check provide value with various case, will return false if fail in any case, otherwise return true. 
 	 * Function will also return false in case of provide value not be in valid type.
 	 * 
-     * @param {any} value - can be number, string, boolean, array and object.
-     * @param {string[]} filter - string can be 
-     * - requires: provide value have to be filled, if boolean, it must be true, if number, it must not be 0.
+     	 * @param {any} value - can be number, string, boolean, array and object.
+     	 * @param {string[]} filter - string can be 
+     	 * - requires: provide value have to be filled, if boolean, it must be true, if number, it must not be 0.
 	 * - is_empty: provide object/array should not be empty, null and undefined.
 	 * - is_numeric: provide value must be in number, for number in string, use is_string, otherwise validation will be failed.
 	 * - is_string: provide value must be in string.
@@ -92,7 +92,7 @@ export default FormdataService = {
 	 * - password_strong_secure: provide string value must contain A-Z, a-z, 0-9 and special characters like !, &, #, $, etc.
 	 * - contain_with: provide string value must contain defined string, used is {contain_with: string}.
 	 * - not_contain_with: provide string value must not contain defined string, used is {not_contain_with: string}.
-     */
+     	*/
 	validation: (value, filter) => {
 		try {
 			let _flag = true;
