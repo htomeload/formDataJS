@@ -196,6 +196,16 @@ export default FormdataService = {
 							}
 							break;
 						}
+						case "contain_with": {
+							if ( !(value.match('[^,]*'+check['contain_with']+'[,$]*')) ){
+								_flag = false;
+							}
+						}
+						case "not_contain_with": {
+							if ( (value.match('[^,]*'+check['not_contain_with']+'[,$]*')) ){
+								_flag = false;
+							}
+						}
 					}
 				});
 			}else{
