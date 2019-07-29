@@ -1,4 +1,4 @@
-# FormdataService
+# FormdataJS
 
 ## What is this project
 This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then to expand to such as JSON and object converter and validation.
