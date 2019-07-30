@@ -9,10 +9,10 @@ or higher, with that, this library can be anywhere that use JavaScript.
 
 ## Usage
 Library writes in Object-Functions format, so just import it into page where it will be used is enough, 
-then use `FormdataService` or whatever name as defined following with function name. For example
+then use `FormdataJS` or whatever name as defined following with function name. For example
 
 ```bash
-const result = FormdataService.validation();
+const result = FormdataJS.validation();
 ```
 
 Available function is 
@@ -20,7 +20,7 @@ Available function is
     - Function use for convert object to FormData's object. 
     
     ``` bash
-    FormdataService.build({name: 'John', age: 23});
+    FormdataJS.build({name: 'John', age: 23});
     
     // return: FormData() object.
     ```
@@ -28,7 +28,7 @@ Available function is
     - Function use for convert array/object to JSON string.
     
     ```bash
-    FormdataService.objectToJSON({name: 'John', age: 23});
+    FormdataJS.objectToJSON({name: 'John', age: 23});
     
     // return: "{"name":"John","age":23}"
     ```
@@ -36,9 +36,18 @@ Available function is
     - Function use for convert JSON string to object.
     
     ```bash
-    FormdataService.jsonToObject("{"name":"John","age":23}");
+    FormdataJS.jsonToObject("{"name":"John","age":23}");
     
     // return: {name: 'John', age: 23}
+    ```
+* xmlHttpRequest
+    - Function to contact with server, APIs or any online target. It can sent both POST and GET request,
+	will return promise as resolve on success, reject on error or timeout.
+
+    ```bash
+    FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg");
+    
+    // return: FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg").then((event) => {}).catch((event) => {})
     ```
 * validation
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
@@ -50,15 +59,15 @@ Available function is
         wallet: "5,000"
     };
 
-    FormdataService.validation(input.email, ['requires', 'is_valid_email']);
+    FormdataJS.validation(input.email, ['requires', 'is_valid_email']);
     
     // return: true
 
-    FormdataService.validation(input.name, ['requires', 'is_string', {match_to: "John"}]);
+    FormdataJS.validation(input.name, ['requires', 'is_string', {match_to: "John"}]);
     
     // return: true
 
-    FormdataService.validation(input.wallet, ['requires', 'is_numeric']);
+    FormdataJS.validation(input.wallet, ['requires', 'is_numeric']);
     
     // return: false
     ```
