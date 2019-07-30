@@ -126,20 +126,16 @@ export default FormdataJS = {
 			xhr.onloadstart = _options.onloadstart;
 			xhr.onprogress = _options.onprogress;
 
-			if (method.toLowerCase() == "post"){
-				if (params === {}){
-					xhr.send();
-				}else{
+			if (params === {}){
+				xhr.send();
+			}else{
+				if (method.toLowerCase() == "post"){
 					if (params instanceof FormData()){
 						xhr.send(params);
 					}else{
 						xhr.abort();
 						throw "params is not valid FormData()";
 					}
-				}
-			}else{
-				if (params === {}){
-					xhr.send();
 				}else{
 					let paramStr = "";
 
