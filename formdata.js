@@ -76,7 +76,7 @@ export default FormdataJS = {
 	 * 
 	 * @param {string} method ***requires*** method to send request, can be `POST` or `GET`.
 	 * @param {string} url ***requires*** target url to send request, must be full URL like http://www.example.com/api.
-	 * @param {object} params parameters to be sent with request, must be in format {key: values}.
+	 * @param {object} params parameters to be sent with request, upon method, for `GET`, it must be in format {key: values}, for `POST`, it must be FormData() object.
 	 * @param {object} params[].key can be number, string, boolean and object, for object, it will automated converted into JSON.
 	 * @param {object} options options to set on one request, must be in format {option: values}, ***all options is not had to be setted***, option can be
 	 * - `async`: If set *false*, functions will wait till got response, if *true*, it will abort when timeout, default is **true**.
