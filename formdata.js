@@ -155,7 +155,7 @@ export default FormdataJS = {
 							}
 			
 							xhr.abort();
-							throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> build\n\nMessage:\nType of value of input [ "+key+" ] is not as accept type. The list of accept type are "+accTyp;
+							throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> xmlHttpRequest\n\nMessage:\nType of value of input [ "+key+" ] is not as accept type. The list of accept type are "+accTyp;
 						}
 					}
 

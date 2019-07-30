@@ -1,7 +1,7 @@
 # FormdataJS
 
 ## What is this project
-This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then to expand to such as JSON and object converter and validation.
+This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then expanded to such as JSON and object converter and validation.
 
 ## Requirement
 No any more requirement! this project writes with mind that it should be work with any Framework that base on JavaScript ES6
@@ -45,9 +45,9 @@ Available function is
 	will return promise as resolve on success, reject on error or timeout.
 
     ```bash
-    FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg");
+    const request = FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg");
     
-    // return: FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg").then((event) => {}).catch((event) => {})
+    // return: request.then((event) => {}).catch((event) => {})
     ```
 * validation
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
