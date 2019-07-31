@@ -20,22 +20,22 @@ export default FormdataJS = {
 	build: (obj) => {
 		try {
 			let formData = new FormData();
-			for(let key of Object.keys(obj)){
-				if (acceptDataType[ typeof obj[key] ]){
-					if (typeof obj[key] === 'object'){
+			for (let key of Object.keys(obj)) {
+				if (acceptDataType[typeof obj[key]]) {
+					if (typeof obj[key] === 'object') {
 						formData.append(key, JSON.stringify(obj[key]));
-					}else{
+					} else {
 						formData.append(key, obj[key]);
 					}
-				}else{
+				} else {
 					let accTyp = '';
-					for(let types of Object.keys(acceptDataType)){
-						if (acceptDataType[ types ]){
-							accTyp += types+", ";
+					for (let types of Object.keys(acceptDataType)) {
+						if (acceptDataType[types]) {
+							accTyp += types + ", ";
 						}
 					}
-	
-					throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> build\n\nMessage:\nType of value of input [ "+key+" ] is not as accept type. The list of accept type are "+accTyp;
+
+					throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> build\n\nMessage:\nType of value of input [ " + key + " ] is not as accept type. The list of accept type are " + accTyp;
 				}
 			}
 			return formData;
@@ -69,7 +69,7 @@ export default FormdataJS = {
 			throw error;
 		}
 	},
-	
+
 	/**
 	 * Function to contact with server, APIs or any online target. It can sent both POST and GET request,
 	 * will return promise as resolve on success, reject on error or timeout.
@@ -94,72 +94,72 @@ export default FormdataJS = {
 		try {
 			let xhr = new XMLHttpRequest();
 			let _options = {
-				async: typeof options.async === "boolean"? options.async:true,
-				headers: typeof options.headers === "object"? options.headers:{"Content-Type": "multipart/form-data"}, 
-				timeout: typeof options.timeout === "number"? options.timeout:3000, 
-				withCredentials: typeof options.withCredentials === "boolean"? options.withCredentials:false,
-				mimeType: typeof options.mimeType === "string"? mimeType:'',
-				onabort: typeof options.onabort === "function"? options.onabort:() => {},
-				onload: typeof options.onload === "function"? options.onload:() => {},
-				onloadend: typeof options.onloadend === "function"? options.onloadend:() => {},
-				onloadstart: typeof options.onloadstart === "function"? options.onloadstart:() => {},
-				onprogress: typeof options.onprogress === "function"? options.onprogress:() => {},
+				async: typeof options.async === "boolean" ? options.async : true,
+				headers: typeof options.headers === "object" ? options.headers : { "Content-Type": "multipart/form-data" },
+				timeout: typeof options.timeout === "number" ? options.timeout : 3000,
+				withCredentials: typeof options.withCredentials === "boolean" ? options.withCredentials : false,
+				mimeType: typeof options.mimeType === "string" ? mimeType : '',
+				onabort: typeof options.onabort === "function" ? options.onabort : () => { },
+				onload: typeof options.onload === "function" ? options.onload : () => { },
+				onloadend: typeof options.onloadend === "function" ? options.onloadend : () => { },
+				onloadstart: typeof options.onloadstart === "function" ? options.onloadstart : () => { },
+				onprogress: typeof options.onprogress === "function" ? options.onprogress : () => { },
 			};
 
 			xhr.open(method, url, _options.async);
-			if (_options.async){
+			if (_options.async) {
 				xhr.timeout = _options.timeout;
 			}
 			xhr.withCredentials = _options.withCredentials;
-			
-			for(let head of Object.keys(_options.headers)){
+
+			for (let head of Object.keys(_options.headers)) {
 				xhr.setRequestHeader(head, _options.headers[head]);
 			}
 
-			if (_options.mimeType.trim() !== ''){
+			if (_options.mimeType.trim() !== '') {
 				xhr.overrideMimeType(_options.mimeType);
 			}
 
 			xhr.onabort = _options.onabort;
 			xhr.onload = _options.onload;
-			xhr.onloadend = _options.onloadend; 
+			xhr.onloadend = _options.onloadend;
 			xhr.onloadstart = _options.onloadstart;
 			xhr.onprogress = _options.onprogress;
 
-			if (params === {}){
+			if (params === {}) {
 				xhr.send();
-			}else{
-				if (method.toLowerCase() == "post"){
-					if (params instanceof FormData()){
+			} else {
+				if (method.toLowerCase() == "post") {
+					if (params instanceof FormData()) {
 						xhr.send(params);
-					}else{
+					} else {
 						xhr.abort();
 						throw "params is not valid FormData()";
 					}
-				}else{
+				} else {
 					let paramStr = "";
 
-					for(let key of Object.keys(params)){
-						if (acceptDataType[ typeof params[key] ]){
-							if (typeof params[key] === 'object'){
-								paramStr += key + "=" + JSON.stringify(params[key])+"&";
-							}else{
-								paramStr += key + "=" + params[key]+"&";
+					for (let key of Object.keys(params)) {
+						if (acceptDataType[typeof params[key]]) {
+							if (typeof params[key] === 'object') {
+								paramStr += key + "=" + JSON.stringify(params[key]) + "&";
+							} else {
+								paramStr += key + "=" + params[key] + "&";
 							}
-						}else{
+						} else {
 							let accTyp = '';
-							for(let types of Object.keys(acceptDataType)){
-								if (acceptDataType[ types ]){
-									accTyp += types+", ";
+							for (let types of Object.keys(acceptDataType)) {
+								if (acceptDataType[types]) {
+									accTyp += types + ", ";
 								}
 							}
-			
+
 							xhr.abort();
-							throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> xmlHttpRequest\n\nMessage:\nType of value of input [ "+key+" ] is not as accept type. The list of accept type are "+accTyp;
+							throw "[WrongType]\nIn:\formdata.js\n\nFrom:\nformData <<Call>> xmlHttpRequest\n\nMessage:\nType of value of input [ " + key + " ] is not as accept type. The list of accept type are " + accTyp;
 						}
 					}
 
-					xhr.send(paramStr.substr(0, paramStr.length-1));
+					xhr.send(paramStr.substr(0, paramStr.length - 1));
 				}
 			}
 
@@ -171,7 +171,7 @@ export default FormdataJS = {
 					reject(event.target);
 				};
 				xhr.onreadystatechange = (event) => {
-					if (event.target.readyState == 4 && event.target.status == 200){
+					if (event.target.readyState == 4 && event.target.status == 200) {
 						resolve(event.target);
 					}
 				};
@@ -180,186 +180,187 @@ export default FormdataJS = {
 			throw error;
 		}
 	},
-    
-    	/**
-	 * Function use for validate provide value with various case, will return false if fail in any case, otherwise return true. 
-	 * Function will also return false in case of provide value not be in valid type.
-	 * 
-     	 * @param {any} value ***requires*** value to be checked, can be *number*, *string*, *boolean*, *array* and *object*.
-     	 * @param {string[]} filter ***requires*** **array** that contain **string/object** validation case, those can be 
-     	 * - `requires`: provide value have to be filled, if boolean, it must be true, if number, it must not be 0.
-	 * - `is_empty`: provide ***object/array*** should not be empty, null and undefined.
-	 * - `is_numeric`: provide value must be in number, for number in string, use is_string, otherwise validation will be failed.
-	 * - `is_string`: provide value must be in string.
-	 * - `is_boolean`: provide value must be in boolean, *`true`* and *`false`* can be applied.
-	 * - `is_object`: provide value must be in object format.
-	 * - `is_array`: provide value must be in array format.
-	 * - `min_length`: provide ***string*** value must have characters more than to defined, used is *{min_length: number}*.
-	 * - `max_length`: provide ***string*** value must have characters least than to defined, used is *{max_length: number}*.
-	 * - `equal_length`: provide ***string*** value must have characters equal to defined, used is *{equal_length: number}*.
-	 * - `match_to`: provide ***string*** value must match to defined string exactly, used is *{match_to: string}*.
-	 * - `is_valid_email`: provide ***string*** value must be in valid email format.
-	 * - `password_basic_secure`: provide ***string*** value must contain A-Z, a-z and 0-9.
-	 * - `password_strong_secure`: provide ***string*** value must contain A-Z, a-z, 0-9 and special characters like !, &, #, $, etc.
-	 * - `contain_with`: provide ***string*** value must contain defined string, used is *{contain_with: string}*.
-	 * - `not_contain_with`: provide ***string*** value must not contain defined string, used is *{not_contain_with: string}*.
-	 * - `minimum`: provide ***number*** value must equal to defined or more than defined, used is *{minimum: number}*.
-	 * - `maximum`: provide ***number*** value must equal to defined or less than defined, used is *{maximum: number}*.
-	 * - `equal_to`: provide ***number*** value must only equal to defined, used is *{euqal_to: number}*.
-	 * - `between`: provide ***number*** value must equal to defined or more than first defined and less than second defined, used is *{between: [number, number]}*.
-     	*/
-	validation: (value, filter) => {
+
+	/**
+ 	* Function use for validate provide value with various case, will return false if fail in any case, otherwise return true. 
+ 	* Function will also return false in case of provide value not be in valid type.
+ 	* 
+	* @param {any} value ***requires*** value to be checked, can be *number*, *string*, *boolean*, *array* and *object*.
+	* @param {string[]} filter ***requires*** **array** that contain **string/object** validation case.
+	* @param {boolean} async if set as false, then function will return Promise, resolve on suceess validation, reject on failed in any case.
+	*/
+	validation: (value, filter, async = true) => {
 		try {
 			let _flag = true;
 
-			if (acceptDataType[ typeof value ]){
+			if (acceptDataType[typeof value]) {
 				let method = '';
 				filter.forEach(check => {
-					if (typeof check == "string"){
+					if (typeof check == "string") {
 						method = check;
-					}else if (typeof check == "object"){
+					} else if (typeof check == "object") {
 						let key = Object.keys(check);
 						method = key[0];
-					}else{
+					} else {
 						_flag = false;
 					}
 
-					switch(method) {
+					switch (method) {
 						case "requires": {
-							if (typeof value === 'string'){
-								if (value.trim() == '' || value.trim() == ""){
+							if (typeof value === 'string') {
+								if (value.trim() == '' || value.trim() == "") {
 									_flag = false;
 								}
-							}else if (typeof value == "boolean"){
-								if (!value){
+							} else if (typeof value == "boolean") {
+								if (!value) {
 									_flag = false;
 								}
-							}else if (value == 0){
+							} else if (value == 0) {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_empty": {
-							if (value == null || value == [] || value == {} || typeof value === "undefined"){
+							if (value == null || value == [] || value == {} || typeof value === "undefined") {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_numeric": {
-							if (isNaN(value) || !isFinite(value)){
+							if (isNaN(value) || !isFinite(value)) {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_string": {
-							if (typeof value !== 'string'){
+							if (typeof value !== 'string') {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_boolean": {
-							if (typeof value !== 'boolean'){
+							if (typeof value !== 'boolean') {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_object": {
-							if (typeof value !== 'object'){
+							if (typeof value !== 'object') {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_array": {
-							if (!Array.isArray(value) || !(value instanceof Array)){
+							if (!Array.isArray(value) || !(value instanceof Array)) {
 								_flag = false;
 							}
 							break;
 						}
 						case "min_length": {
-							if (value.length < check["min_length"]){
+							if (value.length < check["min_length"]) {
 								_flag = false;
 							}
 							break;
 						}
 						case "max_length": {
-							if (value.length > check["max_length"]){
+							if (value.length > check["max_length"]) {
 								_flag = false;
 							}
 							break;
 						}
 						case "equal_length": {
-							if (value.length != check["equal_length"]){
+							if (value.length != check["equal_length"]) {
 								_flag = false;
 							}
 							break;
 						}
 						case "match_to": {
-							if (value != check["match_to"]){
+							if (value != check["match_to"]) {
 								_flag = false;
 							}
 							break;
 						}
 						case "is_valid_email": {
-							if ( !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) ){
+							const is_valid_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+							if (!is_valid_email.test(value)) {
+								_flag = false;
+							}
+							break;
+						}
+						case "is_valid_url": {
+							const is_valid_url = /^(?:(?:http(s)?|ftp(s)?):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+							if (!is_valid_url.test(value)) {
 								_flag = false;
 							}
 							break;
 						}
 						case "password_basic_secure": {
-							if ( !(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(value)) ){
+							const password_basic_secure = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
+							if (!password_basic_secure.test(value)) {
 								_flag = false;
 							}
 							break;
 						}
 						case "password_strong_secure": {
-							if ( !(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/.test(value)) ){
+							const password_strong_secure = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
+							if (!password_strong_secure.test(value)) {
 								_flag = false;
 							}
 							break;
 						}
 						case "contain_with": {
-							if ( !(value.match('[^,]*'+check['contain_with']+'[,$]*')) ){
+							if (!(value.match('[^,]*' + check['contain_with'] + '[,$]*'))) {
 								_flag = false;
 							}
 							break;
 						}
 						case "not_contain_with": {
-							if ( (value.match('[^,]*'+check['not_contain_with']+'[,$]*')) ){
+							if ((value.match('[^,]*' + check['not_contain_with'] + '[,$]*'))) {
 								_flag = false;
 							}
 							break;
 						}
 						case "minimum": {
-							if (value < check['minimum']){
+							if (value < check['minimum']) {
 								_flag = false;
 							}
 							break;
 						}
 						case "maximum": {
-							if (value > check['maximum']){
+							if (value > check['maximum']) {
 								_flag = false;
 							}
 							break;
 						}
 						case "equal_to": {
-							if (value == check['equal_to']){
+							if (value == check['equal_to']) {
 								_flag = false;
 							}
 							break;
 						}
 						case "between": {
-							if (value < check["between"][0] || value > check["between"][1]){
+							if (value < check["between"][0] || value > check["between"][1]) {
 								_flag = false;
 							}
 							break;
 						}
 					}
 				});
-			}else{
+			} else {
 				_flag = false;
 			}
 
-			return _flag;
+			if (async) {
+				return _flag;
+			} else {
+				return new Promise((resolve, reject) => {
+					if (_flag) {
+						resolve(_flag);
+					} else {
+						reject(_flag);
+					}
+				});
+			}
 		} catch (error) {
 			throw error;
 		}

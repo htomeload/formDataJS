@@ -71,5 +71,27 @@ Available function is
     
     // return: false
     ```
+    For possible validate cases, those can be
+	- `requires`: provide value have to be filled, if boolean, it must be true, if number, it must not be 0.
+	- `is_empty`: provide ***object/array*** should not be empty, null and undefined.
+	- `is_numeric`: provide value must be in number, for number in string, use is_string, otherwise validation will be failed.
+	- `is_string`: provide value must be in string.
+	- `is_boolean`: provide value must be in boolean, *`true`* and *`false`* can be applied.
+	- `is_object`: provide value must be in object format.
+	- `is_array`: provide value must be in array format.
+	- `min_length`: provide ***string*** value must have characters more than to defined, used is *{min_length: number}*.
+	- `max_length`: provide ***string*** value must have characters least than to defined, used is *{max_length: number}*.
+	- `equal_length`: provide ***string*** value must have characters equal to defined, used is *{equal_length: number}*.
+	- `match_to`: provide ***string*** value must match to defined string exactly, used is *{match_to: string}*.
+	- `is_valid_email`: provide ***string*** value must be in valid email format.
+	- `is_valid_url`: provide ***string*** value must be in valid URL format, *not support for validate URL like `localhost`*.
+	- `password_basic_secure`: provide ***string*** value must contain A-Z, a-z and 0-9.
+	- `password_strong_secure`: provide ***string*** value must contain A-Z, a-z, 0-9 and special characters like !, &, #, $, etc.
+	- `contain_with`: provide ***string*** value must contain defined string, used is *{contain_with: string}*.
+	- `not_contain_with`: provide ***string*** value must not contain defined string, used is *{not_contain_with: string}*.
+	- `minimum`: provide ***number*** value must equal to defined or more than defined, used is *{minimum: number}*.
+	- `maximum`: provide ***number*** value must equal to defined or less than defined, used is *{maximum: number}*.
+	- `equal_to`: provide ***number*** value must only equal to defined, used is *{equal_to: number}*.
+	- `between`: provide ***number*** value must equal to defined or more than first defined and less than second defined, used is *{between: [number, number]}*.
 
 For deep information in how to use function is writes in library already, for such as IDE like Visual Studio Code should see while using it.
