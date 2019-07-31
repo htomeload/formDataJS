@@ -183,11 +183,13 @@ export default FormdataJS = {
 
 	/**
  	* Function use for validate provide value with various case, will return false if fail in any case, otherwise return true. 
- 	* Function will also return false in case of provide value not be in valid type.
+	* Function will also return false in case of provide value not be in valid type.
+	* 
+	* Function also can return as Promise by set async to false, resolve on suceess validation, reject on failed in any case.
  	* 
 	* @param {any} value ***requires*** value to be checked, can be *number*, *string*, *boolean*, *array* and *object*.
 	* @param {string[]} filter ***requires*** **array** that contain **string/object** validation case.
-	* @param {boolean} async if set as false, then function will return Promise, resolve on suceess validation, reject on failed in any case.
+	* @param {boolean} async if set as false, then function will return Promise.
 	*/
 	validation: (value, filter, async = true) => {
 		try {

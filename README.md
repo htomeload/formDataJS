@@ -20,6 +20,8 @@ Available function is
     - Function use for convert object to FormData's object. 
     
     ``` bash
+    // FormdataJS.build(obj);
+
     FormdataJS.build({name: 'John', age: 23});
     
     // return: FormData() object.
@@ -28,6 +30,8 @@ Available function is
     - Function use for convert array/object to JSON string.
     
     ```bash
+    // FormdataJS.objectToJSON(obj);
+
     FormdataJS.objectToJSON({name: 'John', age: 23});
     
     // return: "{"name":"John","age":23}"
@@ -36,6 +40,8 @@ Available function is
     - Function use for convert JSON string to object.
     
     ```bash
+    // FormdataJS.jsonToObject(json);
+
     FormdataJS.jsonToObject("{"name":"John","age":23}");
     
     // return: {name: 'John', age: 23}
@@ -45,14 +51,19 @@ Available function is
 	will return promise as resolve on success, reject on error or timeout.
 
     ```bash
+    // FormdataJS.xmlHttpRequest(method, url, params = {}, options = {});
+
     const request = FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg");
     
     // return: request.then((event) => {}).catch((event) => {})
     ```
 * validation
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
+    Function also can return as Promise by set async to false, resolve on suceess validation, reject on failed in any case.
     
     ```bash
+    // FormdataJS.validation(value, filter, async = true);
+
     let input = {
         email: "example@email.com",
         name: "John",
