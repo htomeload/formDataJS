@@ -49,6 +49,18 @@ Available function is
     
     // return: request.then((event) => {}).catch((event) => {})
     ```
+    For possible options, those can be
+    - `async`: If set *false*, functions will wait till got response, if *true*, it will abort when timeout, default is **true**.
+	- `header`: Kind of header to set with request, default is **{"Content-Type": "multipart/form-data"}**.
+	- `timeout`: If set async as *true*, request will abort when timeout as setted in miliseconds, default is **3000**.
+	- `withCredentials`: if set as *true*, it will appiles security rule, such as 'No-Cross-Origin', default is **false**.
+	- `mimeType`: MIME to be ovverride on response header, default is **''**.
+	- `onabort`: Callback when request is aborted, default is **() => {}**.
+	- `onload`: Callback when request is loading, default is **() => {}**.
+	- `onloadend`: Callback when loading request is done, default is **() => {}**.
+	- `onloadstart`: Callback to be called once when request is start, default is **() => {}**.
+	- `onprogress`: Callback when request is in progress, default is **() => {}**.
+
 * validation (value, filter, async = true)
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
     Function also can return as Promise by set async to false, resolve on suceess validation, reject on failed in any case.

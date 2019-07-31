@@ -78,17 +78,7 @@ export default FormdataJS = {
 	 * @param {string} url ***requires*** target url to send request, must be full URL like http://www.example.com/api.
 	 * @param {object} params parameters to be sent with request, upon method, for `GET`, it must be in format {key: values}, for `POST`, it must be FormData() object.
 	 * @param {object} params[].key can be number, string, boolean and object, for object, it will automated converted into JSON.
-	 * @param {object} options options to set on one request, must be in format {option: values}, ***all options is not had to be setted***, option can be
-	 * - `async`: If set *false*, functions will wait till got response, if *true*, it will abort when timeout, default is **true**.
-	 * - `header`: Kind of header to set with request, default is **{"Content-Type": "multipart/form-data"}**.
-	 * - `timeout`: If set async as *true*, request will abort when timeout as setted in miliseconds, default is **3000**.
-	 * - `withCredentials`: if set as *true*, it will appiles security rule, such as 'No-Cross-Origin', default is **false**.
-	 * - `mimeType`: MIME to be ovverride on response header, default is **''**.
-	 * - `onabort`: Callback when request is aborted, default is **() => {}**.
-	 * - `onload`: Callback when request is loading, default is **() => {}**.
-	 * - `onloadend`: Callback when loading request is done, default is **() => {}**.
-	 * - `onloadstart`: Callback to be called once when request is start, default is **() => {}**.
-	 * - `onprogress`: Callback when request is in progress, default is **() => {}**.
+	 * @param {object} options options to set on one request, must be in format {option: values}, ***all options is not had to be setted***.
 	 */
 	xmlHttpRequest: (method, url, params = {}, options = {}) => {
 		try {
