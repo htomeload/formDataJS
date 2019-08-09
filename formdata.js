@@ -219,7 +219,7 @@ export default FormdataJS = {
 							break;
 						}
 						case "is_numeric": {
-							if (isNaN(value) || !isFinite(value)) {
+							if (isNaN(value) && !isFinite(value)) {
 								_flag = false;
 							}
 							break;
