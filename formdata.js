@@ -325,7 +325,7 @@ export default FormdataJS = {
 							break;
 						}
 						case "equal_to": {
-							if (value == check['equal_to']) {
+							if (value != check['equal_to']) {
 								_flag = false;
 							}
 							break;
