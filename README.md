@@ -13,7 +13,7 @@ Just do
 <script src="formdata.js"></script>
 ```
 
-and you're ready to go, usage `formdatajs` following with function name. For example
+and you're ready to go, use `formdatajs` following with function name. For example
 
 ```bash
 const result = formdatajs.validation();
