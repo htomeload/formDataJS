@@ -24,7 +24,7 @@ Available function is
     - Function use for convert array/object to JSON string.
     
     ```bash
-    FormdataJS.objectToJSON({name: 'John', age: 23});
+    formdatajs.objectToJSON({name: 'John', age: 23});
     
     // return: "{"name":"John","age":23}"
     ```
@@ -32,7 +32,7 @@ Available function is
     - Function use for convert JSON string to object.
     
     ```bash
-    FormdataJS.jsonToObject("{"name":"John","age":23}");
+    formdatajs.jsonToObject("{"name":"John","age":23}");
     
     // return: {name: 'John', age: 23}
     ```
@@ -47,15 +47,15 @@ Available function is
         wallet: "5,000"
     };
 
-    FormdataJS.validation(input.email, ['requires', 'is_valid_email']);
+    formdatajs.validation(input.email, ['requires', 'is_valid_email']);
     
     // return: true
 
-    FormdataJS.validation(input.name, ['requires', 'is_string', {match_to: "John"}]);
+    formdatajs.validation(input.name, ['requires', 'is_string', {match_to: "John"}]);
     
     // return: true
 
-    FormdataJS.validation(input.wallet, ['requires', 'is_numeric']);
+    formdatajs.validation(input.wallet, ['requires', 'is_numeric']);
     
     // return: false
     ```
