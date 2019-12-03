@@ -10,7 +10,7 @@ Internet Explorer > 10, Google Chrome > 48–55, Mozilla Firefox > 44–50, Micr
 Just do 
 
 ```
-<script src="xhr.service.js"></script>
+<script src="formdata.js"></script>
 ```
 
 and you're ready to go, usage `formdatajs` following with function name. For example
