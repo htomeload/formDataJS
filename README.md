@@ -4,26 +4,22 @@
 This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then expanded to such as JSON and object converter and validation.
 
 ## Requirement
-No any more requirement! this project writes with mind that it should be work with any Framework that base on JavaScript ES6
-or higher, with that, this library can be anywhere that use JavaScript.
+Internet Explorer > 10, Google Chrome > 48–55, Mozilla Firefox > 44–50, Microsoft Edge > 14, Opera > 35–42, Apple Safari > 10, SeaMonkey > 2.24–2.30 or higher with JavaScript ES6 supports, or Framework that support JavaScript ES6.
 
 ## Usage
-Library writes in Object-Functions format, so just import it into page where it will be used is enough, 
-then use `FormdataJS` or whatever name as defined following with function name. For example
+Just do 
+
+```
+<script src="xhr.service.js"></script>
+```
+
+and you're ready to go, usage `formdatajs` following with function name. For example
 
 ```bash
-const result = FormdataJS.validation();
+const result = formdatajs.validation();
 ```
 
 Available function is 
-* build (obj)
-    - Function use for convert object to FormData's object. 
-    
-    ``` bash
-    FormdataJS.build({name: 'John', age: 23});
-    
-    // return: FormData() object.
-    ```
 * objectToJSON (obj)
     - Function use for convert array/object to JSON string.
     
@@ -40,27 +36,6 @@ Available function is
     
     // return: {name: 'John', age: 23}
     ```
-* xmlHttpRequest (method, url, params = {}, options = {})
-    - Function to contact with server, APIs or any online target. It can sent both POST and GET request,
-	will return promise as resolve on success, reject on error or timeout.
-
-    ```bash
-    const request = FormdataJS.xmlHttpRequest("GET", "http://localhost/api/getHellowMsg");
-    
-    // return: request.then((event) => {}).catch((event) => {})
-    ```
-    For possible options, those can be
-    - `async`: If set *false*, functions will wait till got response, if *true*, it will abort when timeout, default is **true**.
-	- `header`: Kind of header to set with request, default is **{"Content-Type": "multipart/form-data"}**.
-	- `timeout`: If set async as *true*, request will abort when timeout as setted in miliseconds, default is **3000**.
-	- `withCredentials`: if set as *true*, it will appiles security rule, such as 'No-Cross-Origin', default is **false**.
-	- `mimeType`: MIME to be ovverride on response header, default is **''**.
-	- `onabort`: Callback when request is aborted, default is **() => {}**.
-	- `onload`: Callback when request is loading, default is **() => {}**.
-	- `onloadend`: Callback when loading request is done, default is **() => {}**.
-	- `onloadstart`: Callback to be called once when request is start, default is **() => {}**.
-	- `onprogress`: Callback when request is in progress, default is **() => {}**.
-
 * validation (value, filter, async = true)
     - Function use for check provide value with various case, will return false if fail in any case, otherwise return true. Function will also return false in case of provide value not be in valid type.
     Function also can return as Promise by set async to false, resolve on suceess validation, reject on failed in any case.
@@ -87,7 +62,7 @@ Available function is
     For possible validate cases, those can be
 	- `requires`: provide value have to be filled, if boolean, it must be true, if number, it must not be 0.
 	- `is_empty`: provide ***object/array*** should not be empty, null and undefined.
-	- `is_numeric`: provide value must be in number, for number in string, use is_string, otherwise validation will be failed.
+	- `is_numeric`: provide value must be in numeric, value can be number or string that contain only [0-9] characters and may with one dot(.).
 	- `is_string`: provide value must be in string.
 	- `is_boolean`: provide value must be in boolean, *`true`* and *`false`* can be applied.
 	- `is_object`: provide value must be in object format.
