@@ -4,12 +4,13 @@
 This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then expanded to such as JSON and object converter and validation.
 
 ## Requirement
-Internet Explorer > 10, Google Chrome > 48–55, Mozilla Firefox > 44–50, Microsoft Edge > 14, Opera > 35–42, Apple Safari > 10, SeaMonkey > 2.24–2.30 or higher with JavaScript ES6 supports, or Framework that support JavaScript ES6.
+* JavaScript (.js)
+    - Internet Explorer > 10, Google Chrome > 48–55, Mozilla Firefox > 44–50, Microsoft Edge > 14, Opera > 35–42, Apple Safari > 10, SeaMonkey > 2.24–2.30 or higher with JavaScript ES6 supports, or Framework that support JavaScript ES6.
 
-* [ionic]
+* Ionic Framework (ionic)
     - Ionic Framework >= 3
 
-* [react-native]
+* React Native (react-native)
     - React Native >= 0.6
 
 ## Usage
