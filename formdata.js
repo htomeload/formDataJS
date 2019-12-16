@@ -66,7 +66,7 @@
                         }
 
                         switch (method) {
-                            case "requires": {
+                            case "require": {
                                 if (typeof value === 'string') {
                                     if (value.trim() == '' || value.trim() == "") {
                                         _flag = false;
