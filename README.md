@@ -4,7 +4,7 @@
 This project is about library which contain nesscesary function to reducing code to write in working with form. This library create with purpose to make build FormData be more easily and less code to write. Then expanded to such as JSON and object converter and validation.
 
 ## Requirement
-* JavaScript (.js)
+* JavaScript (web)
     - Internet Explorer > 10, Google Chrome > 48–55, Mozilla Firefox > 44–50, Microsoft Edge > 14, Opera > 35–42, Apple Safari > 10, SeaMonkey > 2.24–2.30 or higher with JavaScript ES6 supports, or Framework that support JavaScript ES6.
 
 * Ionic Framework (ionic)
@@ -14,19 +14,40 @@ This project is about library which contain nesscesary function to reducing code
     - React Native >= 0.6
 
 ## Usage
-Just do 
-
+- Web version
+    - Just do 
 ```
 <script src="formdata.js"></script>
 ```
-
 and you're ready to go, use `formdatajs` following with function name. For example
 
 ```bash
 const result = formdatajs.validation();
 ```
 
-Available function is 
+- Ionic Framework version
+    - Just import FormdataService into page then declare in constructor and you're set.
+```
+import { FormdataService } from './formData.service' 
+
+export class exampleClass {
+  	...
+
+	constructor(private `whatevername`: FormdataService) {
+    }
+
+    ...
+}
+```
+
+- React Native version
+    - Just do 
+```
+import { `whatevername` } from './formData' 
+```
+and use it with `whatevername` as you defined.
+
+## Available function is 
 * objectToJSON (obj)
     - Function use for convert array/object to JSON string.
     
