@@ -47,7 +47,7 @@ import { `whatevername` } from './formData'
 ```
 and use it with `whatevername` as you defined.
 
-## Available function is 
+## Available functions 
 * objectToJSON (obj)
     - Function use for convert array/object to JSON string.
     
